@@ -20,6 +20,6 @@ Jéssica Caroline Oliveira de Jesus, RA: 2213596<br>
 Milene Teixeira Cabrini, RA: 2217974<br>
 <a href="https://github.com/SabrinaPerdiz" target="_blank">Sabrina Mai Nakaichi Perdiz, RA: 2212338</a><br>
 Sérgio Rodrigo Costa, RA: 2208035<br>
-Tiago Tavares da Silva, RA: 2208690<br>
+<a href="https://github.com/Tiagots23" target="_blank"> Tiago Tavares da Silva, RA: 2208690</a><br>
 
 
