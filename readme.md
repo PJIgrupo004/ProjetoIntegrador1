@@ -22,4 +22,24 @@ Milene Teixeira Cabrini, RA: 2217974<br>
 Sérgio Rodrigo Costa, RA: 2208035<br>
 <a href="https://github.com/Tiagots23" target="_blank"> Tiago Tavares da Silva, RA: 2208690</a><br>
 
+## Como instalar
 
+Execute os comandos abaixo:
+
+```sh
+pip install poetry
+
+cd site
+
+poetry install
+```
+
+## Como executar
+
+Para subir o serviço localmente, execute no terminal o seguinte comando:
+
+```sh
+cd site
+
+poetry run flask run --host 0.0.0.0 --port 5000
+```

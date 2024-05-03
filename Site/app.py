@@ -18,4 +18,6 @@ def login():
 def agendamento():
     return render_template("agendamento.html")
 
-app.run()
+
+if __name__ == '__main__':
+    app.run()
