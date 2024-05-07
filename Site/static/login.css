@@ -1,0 +1,55 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh; 
+    background-color: black;
+}
+.button-confirm {
+    width: 60%;
+    padding: 10px;
+    margin-top: 20px;
+    box-sizing: border-box;
+    background-color: black;
+    outline: none;
+    border: none;
+    color: white;
+    
+}
+.button-confirm:hover {
+    background-color: black;
+}
+.button-confirm:active {
+    background-color: black !important; 
+    color: white !important; 
+}
+.card {
+    width: 60%;
+    height: 80%;
+}
+.card-body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body > * {
+    flex-grow: 1;
+}
+.input-group {
+ margin-bottom: 40px;
+ margin-top: 40px;
+ outline-color: black;
+}
+.form-control {
+    border: none;
+    border-bottom: 1px solid black;
+    border-radius: 0;
+}
+.form-control:focus {
+    background-color: transparent !important;;
+    border-color: initial !important;;
+    color: initial !important;;
+    outline: none !important;;
+}
