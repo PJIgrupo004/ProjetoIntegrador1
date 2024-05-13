@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_login import LoginManager, UserMixin, login_required, current_user, login_user, logout_user
 import requests
 
+
 app = Flask(__name__)
 app.secret_key = 'chave'
 login_manager = LoginManager()
@@ -22,18 +23,18 @@ users = {'user': User('user', '1234')}
 #Tela inicial
 @app.route("/")
 def homepage():
-    return render_template("home.html")
+    return render_template("jinja_home.html")
 
 #Tela de agendamento
 @app.route("/agendamento")
 def agendamento():
-    return render_template("agendamento.html")
+    return render_template("jinja_agendamento.html")
 
-#Dashboard
+#Tela principal do administrador
 @app.route("/dashboard")
 @login_required
 def dashboard():
-    return render_template("dashboard.html")
+    return render_template("/adm/jinja_dashboard.html")
 
 #Tela de login
 @app.route("/login", methods=['GET', 'POST'])
@@ -49,7 +50,7 @@ def login():
             if user and user.password == password:
                 login_user(user)
                 return redirect(url_for('dashboard'))
-        return render_template('login.html')
+        return render_template('jinja_login.html')
 
 # Rota de logout
 @app.route('/logout')
@@ -60,4 +61,4 @@ def logout():
 
 if __name__ == '__main__':
     app.run()
-    
+

@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Anna Alves</title>
+    <link rel="stylesheet" href="/static/css/general.css">
+    <link rel="stylesheet" href="/static/css/layout.css">
+
+    {% block head %}
+
+    {% endblock %}
+
+</head>
+<body>
+    <header>
+        <img src="/static/logo.png" alt="image">
+    </header>
+    <nav class="navbar" >
+        <ul class="navbar">
+            <li><a href="/">Home</a><li>
+            <li><a href="{{url_for('agendamento')}}">Agendamento</a></li>
+            <li><a href="login">Login</a></li>
+        </ul>
+    </nav>
+
+    {% block body %}
+    {% endblock %}
+
+    <footer>
+
+    </footer>
+
+</body>
+</html>
