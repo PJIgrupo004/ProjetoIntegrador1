@@ -2,54 +2,56 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60vh; 
-    background-color: black;
+    height: 60vh;
 }
 .button-confirm {
-    width: 60%;
+    width: 370px;
     padding: 10px;
     margin-top: 20px;
-    box-sizing: border-box;
     background-color: black;
     outline: none;
     border: none;
     color: white;
-    
+    cursor: pointer;
+
 }
 .button-confirm:hover {
     background-color: black;
 }
 .button-confirm:active {
-    background-color: black !important; 
-    color: white !important; 
+    background-color: black;
+    color: white;
 }
 .card {
-    width: 60%;
+
     height: 80%;
 }
 .card-body {
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.card-body > * {
-    flex-grow: 1;
-}
+
 .input-group {
- margin-bottom: 40px;
- margin-top: 40px;
- outline-color: black;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    outline-color: black;
 }
 .form-control {
+    width: 350px;
+    height: 30px;
     border: none;
     border-bottom: 1px solid black;
-    border-radius: 0;
+    border-radius: 3px;
+    cursor: pointer;
 }
 .form-control:focus {
-    background-color: transparent !important;;
-    border-color: initial !important;;
-    color: initial !important;;
-    outline: none !important;;
+    outline: none;
+    font-size: 1.1em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
+.ico_pessoa {
+    padding-left: 150px;
+}
+
