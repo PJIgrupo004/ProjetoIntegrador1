@@ -1,10 +1,3 @@
--- Tabela Administrador
-CREATE TABLE Administrador (
-    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(255),
-    senha VARCHAR(255)
-);
-
 -- Tabela Clientes
 CREATE TABLE Clientes (
     id_cliente INT AUTO_INCREMENT PRIMARY KEY,
@@ -14,6 +7,13 @@ CREATE TABLE Clientes (
     endereco VARCHAR(255),
     facebook VARCHAR(255),
     instagram VARCHAR(255)
+);
+
+-- Tabela Usuários
+CREATE TABLE usuarios (
+  id_usuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  usuario VARCHAR(255) NULL,
+  senha VARCHAR(45) NULL
 );
 
 -- Tabela Procedimentos

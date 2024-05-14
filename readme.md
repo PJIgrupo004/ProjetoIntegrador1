@@ -43,3 +43,13 @@ cd site
 
 poetry run flask run --host 0.0.0.0 --port 5000
 ```
+
+## Configurar o banco de dados
+
+- Criar a base no mysql com o nome desejado;
+- Executar as DDL's do arquivo Banco_de_dados/banco_de_dados.sql;
+- Duplicar o arquivo db_connection_data_mockup.py;
+- Preencher as variáveis conforme o orientado;
+- Alterar o nome do arquivo duplicado para db_connection_data.py.
+
+OBS: feito dessa maneira para proteger os dados de acesso, o arquivo db_connection_data.py já está incluso no gitignore
