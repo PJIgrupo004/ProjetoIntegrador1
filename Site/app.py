@@ -38,7 +38,7 @@ def load_user(user_id):
 #Tela inicial
 @app.route("/")
 def homepage():
-    return render_template("jinja_home.html")
+    return render_template("jinja_home.html",posts = db.get_posts())
 
 #Tela de agendamento
 @app.route("/agendamento")

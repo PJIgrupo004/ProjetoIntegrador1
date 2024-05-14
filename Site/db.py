@@ -21,6 +21,7 @@ def close_db(e=None):
     if db is not None and db.is_connected():
         db.close()
 
+#Traz o ID de todos os usuários
 def get_users():
     db = getdb()
     cursor = db.cursor(dictionary=True)
@@ -29,6 +30,7 @@ def get_users():
     cursor.close()
     return usuarios
 
+#Retorna o ID e a senha a partir do nome do usuário
 def get_password_user(user_name):
     db = getdb()
     cursor = db.cursor(dictionary=True)
@@ -38,6 +40,7 @@ def get_password_user(user_name):
     cursor.close()
     return rt
 
+#Retorna o ID e a senha a partir do ID
 def get_password_id(id):
     db = getdb()
     cursor = db.cursor(dictionary=True)
@@ -47,10 +50,14 @@ def get_password_id(id):
     cursor.close()
     return rt
 
-def get_id(id):
+#Retorna a listagem dos posts do instagram
+def get_posts():
     db = getdb()
     cursor = db.cursor(dictionary=True)
-    cursor.execute('select id_usuario from usuarios where id_usuario ='+id)
-    id_ret = cursor.fetchone()
+    cursor.execute('select embedded from posts_instagram '
+                   +'where (Data_inicial_exibicao <= now() or Data_inicial_exibicao is null) '
+                   +'and (Data_final_exibicao >= now() or Data_final_exibicao is null) '
+                   +'and status = "A"')
+    rt = cursor.fetchall()    
     cursor.close()
-    return id_ret
+    return rt
