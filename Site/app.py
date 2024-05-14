@@ -30,12 +30,6 @@ def homepage():
 def agendamento():
     return render_template("jinja_agendamento.html")
 
-#Tela principal do administrador
-@app.route("/dashboard")
-@login_required
-def dashboard():
-    return render_template("/adm/jinja_dashboard.html")
-
 #Tela de login
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -51,6 +45,48 @@ def login():
                 login_user(user)
                 return redirect(url_for('dashboard'))
         return render_template('jinja_login.html')
+
+#Tela principal do administrador
+@app.route("/dashboard")
+@login_required
+def dashboard():
+    return render_template("/adm/jinja_dashboard.html")
+
+#Tela Cadastro de Clientes
+@app.route("/cadastro_cliente")
+@login_required
+def cadastro_cliente():
+    return render_template("/adm/jinja_cadastro_cliente.html")
+
+#Tela Cadastro de Serviços
+@app.route("/cadastro_serviços")
+@login_required
+def cadastro_servicos():
+    return render_template("/adm/jinja_cadastro_serviços.html")
+
+#Tela Cadastro de Funcionarios
+@app.route("/cadastro_funcionarios")
+@login_required
+def cadastro_funcionarios():
+    return render_template("/adm/jinja_cadastro_funcionarios.html")
+
+#Tela Clientes Cadastrados
+@app.route("/clientes_cadastrados")
+@login_required
+def clientes_cadastrados():
+    return render_template("/adm/jinja_clientes_cadastrados.html")
+
+#Tela Serviços Cadastrados
+@app.route("/serviços_cadastrados")
+@login_required
+def servicos_cadastrados():
+    return render_template("/adm/jinja_serviços_cadastrados.html")
+
+#Tela Funcionarios Cadastrados
+@app.route("/funcionarios_cadastrados")
+@login_required
+def funcionarios_cadastrados():
+    return render_template("/adm/jinja_funcionarios_cadastrados.html")
 
 # Rota de logout
 @app.route('/logout')
