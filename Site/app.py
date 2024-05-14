@@ -8,9 +8,11 @@ app.secret_key = 'chave'
 app.app_context().push()
 login_manager = LoginManager()
 login_manager.init_app(app)
+login_manager.login_view = 'login'
 db.getdb()
 
 class User(UserMixin):
+
     def __init__(self, username, password):
         self.id = username
         self.password = password
@@ -29,7 +31,8 @@ class User(UserMixin):
 
 @login_manager.user_loader
 def load_user(user_id):
-    return 
+    usuario = db.get_password_user(user_id)
+    return User(usuario['id_usuario'],usuario['senha'])
 
 
 #Tela inicial
@@ -57,9 +60,9 @@ def login():
         if request.method == 'POST':
             username = request.form['username']
             password = request.form['password']
-            ret = db.get_password(username)
+            ret = db.get_password_user(username)
             if ret != None:
-                user = User(ret['id_usuario'],ret['senha'])
+                user = User(username,password)
                 if user.password == password:
                     login_user(user)
                     return redirect(url_for('dashboard'))

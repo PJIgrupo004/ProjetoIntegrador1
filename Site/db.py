@@ -24,17 +24,26 @@ def close_db(e=None):
 def get_users():
     db = getdb()
     cursor = db.cursor(dictionary=True)
-    cursor.execute('select usuario,id_usuario from usuarios')
+    cursor.execute('select id_usuario from usuarios')
     usuarios = cursor.fetchall()
     cursor.close()
     return usuarios
 
-def get_password(user_name):
+def get_password_user(user_name):
     db = getdb()
     cursor = db.cursor(dictionary=True)
+    print('select id_usuario,senha from usuarios where usuario ="'+user_name+'"')
     cursor.execute('select id_usuario,senha from usuarios where usuario ="'+user_name+'"')
     rt = cursor.fetchone()    
-    print(rt)
+    cursor.close()
+    return rt
+
+def get_password_id(id):
+    db = getdb()
+    cursor = db.cursor(dictionary=True)
+    print('select id_usuario,senha from usuarios where id_usuario ='+id)
+    cursor.execute('select id_usuario,senha from usuarios where id_usuario ='+id)
+    rt = cursor.fetchone()    
     cursor.close()
     return rt
 
