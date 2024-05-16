@@ -8,6 +8,11 @@
 
 {% block body %}
 <main>
-    <!-- Mostrar os clientes cadastrados -->
+    <!--Aqui eu fiz um for pegando os clientes pra exibição, ele pega todos os campos, então você consegue trocar o campo
+    a ser exibido. Ex: cliente['id_cliente'],cliente['facebook'],etc-->
+    {% for cliente in clientes %}
+        <h1>{{cliente['nome']}}</h1><br>
+        <h1>{{cliente['telefone']}}</h1><br>
+    {% endfor %}
 </main>
 {% endblock %}

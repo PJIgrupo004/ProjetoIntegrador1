@@ -1,10 +1,3 @@
--- Tabela Administrador
-CREATE TABLE Administrador (
-    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(255),
-    senha VARCHAR(255)
-);
-
 -- Tabela Clientes
 CREATE TABLE Clientes (
     id_cliente INT AUTO_INCREMENT PRIMARY KEY,
@@ -14,6 +7,13 @@ CREATE TABLE Clientes (
     endereco VARCHAR(255),
     facebook VARCHAR(255),
     instagram VARCHAR(255)
+);
+
+-- Tabela Usuários
+CREATE TABLE usuarios (
+  id_usuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  usuario VARCHAR(255) NULL,
+  senha VARCHAR(45) NULL
 );
 
 -- Tabela Procedimentos
@@ -42,20 +42,11 @@ CREATE TABLE Agendamentos (
     id_procedimento INT,
     data_agendamento DATE,
     hora_agendamento TIME,
+    data_realizacao DATE,
     status ENUM('pendente', 'confirmado', 'realizado', 'cancelado'),
     observacoes TEXT,
     FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente),
     FOREIGN KEY (id_procedimento) REFERENCES Procedimentos(id_procedimento)
-);
-
--- Tabela Histórico de Agendamentos
-CREATE TABLE Historico_Agendamentos (
-    id_historico INT AUTO_INCREMENT PRIMARY KEY,
-    id_cliente INT,
-    id_agendamento INT,
-    data_realizacao DATE,
-    FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente),
-    FOREIGN KEY (id_agendamento) REFERENCES Agendamentos(id_agendamento)
 );
 
 -- Tabela posts_do_instagram
