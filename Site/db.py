@@ -61,3 +61,136 @@ def get_posts():
     rt = cursor.fetchall()    
     cursor.close()
     return rt
+
+class cliente():
+    #Retorna todos os clientes
+    def get_clientes():
+        db = getdb()
+        cursor = db.cursor(dictionary=True)
+        cursor.execute('select * from clientes')
+        clientes = cursor.fetchall()    
+        print(clientes)
+        cursor.close()
+        return clientes
+    
+    #Insere um cliente novo na tabela
+    def insert_cliente(nome,telefone,data_nascimento,endereco,facebook,instagram):
+        db = getdb()
+        cursor = db.cursor(dictionary=True)
+        cursor.execute('insert into clientes (nome,telefone,data_nascimento,endereco,facebook,instagram) values ('+nome+','+telefone+','+data_nascimento+','+endereco+','+facebook+','+instagram+')')
+        db.commit()  
+        cursor.close()
+        return cursor.lastrowid()
+    
+    def update_cliente(nome,telefone,data_nascimento,endereco,facebook,instagram):
+        db = getdb()
+        cursor = db.cursor(dictionary=True)
+        cursor.execute('update clientes set (nome,telefone,data_nascimento,endereco,facebook,instagram) values ('+nome+','+telefone+','+data_nascimento+','+endereco+','+facebook+','+instagram+')')
+        db.commit()  
+        affected_rows = cursor.rowcount
+        if affected_rows is not None and affected_rows > 0:
+            cursor.close()
+            return True
+        else:
+            return False
+        
+
+class procedimentos():
+    
+    #Retorna todos os procedimentos
+    def get_procedimentos():
+        db = getdb()
+        cursor = db.cursor(dictionary=True)
+        cursor.execute('select * from procedimentos')
+        procedimentos = cursor.fetchall()    
+        print(procedimentos)
+        cursor.close()
+        return procedimentos
+    
+    #Insere um novo procedimento
+    def insert_procedimento(nome,tempo,valor,descricao):
+        db = getdb()
+        cursor = db.cursor(dictionary=True)
+        cursor.execute('insert into procedimentos (nome,tempo,valor,descricao) values ('+nome+','+tempo+','+valor+','+descricao+')')
+        db.commit()  
+        cursor.close()
+        return cursor.lastrowid()
+    
+    def update_procedimento(nome,tempo,valor,descricao):
+        db = getdb()
+        cursor = db.cursor(dictionary=True)
+        cursor.execute('update procedimentos set (nome,tempo,valor,descricao) values ('+nome+','+tempo+','+valor+','+descricao+')')
+        db.commit()  
+        cursor.close()
+        affected_rows = cursor.rowcount
+        if affected_rows is not None and affected_rows > 0:
+            cursor.close()
+            return True
+        else:
+            return False
+
+class produtos():
+    
+    #Retorna todos os produtos
+    def get_produtos():
+        db = getdb()
+        cursor = db.cursor(dictionary=True)
+        cursor.execute('select * from produtos')
+        produtos = cursor.fetchall()    
+        print(produtos)
+        cursor.close()
+        return produtos
+    
+    #Insere um novo produto
+    def insert_produto(nome,marca,valor,data_validade,quant_estoque):
+        db = getdb()
+        cursor = db.cursor(dictionary=True)
+        cursor.execute('insert into produtos (nome,marca,valor,data_validade,quant_estoque) values ('+nome+','+marca+','+valor+','+data_validade+','+quant_estoque+')')
+        db.commit()  
+        cursor.close()
+        return cursor.lastrowid()  
+
+    def update_produto(nome,marca,valor,data_validade,quant_estoque):
+        db = getdb()
+        cursor = db.cursor(dictionary=True)
+        cursor.execute('update produtos set (nome,marca,valor,data_validade,quant_estoque) values ('+nome+','+marca+','+valor+','+data_validade+','+quant_estoque+')')
+        db.commit()  
+        cursor.close()
+        affected_rows = cursor.rowcount
+        if affected_rows is not None and affected_rows > 0:
+            cursor.close()
+            return True
+        else:
+            return False
+    
+class agendamentos():
+
+    def get_agendamentos():
+        db = getdb()
+        cursor = db.cursor(dictionary=True)
+        cursor.execute('select * from agendamentos')
+        agendamentos = cursor.fetchall()    
+        print(agendamentos)
+        cursor.close()
+        return agendamentos
+    
+    def insert_agendamentos(id_cliente,id_procedimento,data_agendamento,hora_agendamento,data_realização,status,observacoes):
+        db = getdb()
+        cursor = db.cursor(dictionary=True)
+        cursor.execute('insert into agendamentos (id_cliente,id_procedimento,data_agendamento,hora_agendamento,data_realização,status,observacoes) values ('+id_cliente+','+id_procedimento+','+data_agendamento+','+hora_agendamento+','+data_realização+','+status+','+observacoes+')')
+        db.commit()
+        cursor.close()
+        return cursor.lastrowid()
+    
+    def update_agendamentos(id_cliente,id_procedimento,data_agendamento,hora_agendamento,data_realização,status,observacoes):
+        db = getdb()
+        cursor = db.cursor(dictionary=True)
+        cursor.execute('update agendamentos set (id_cliente,id_procedimento,data_agendamento,hora_agendamento,data_realização,status,observacoes) values ('+id_cliente+','+id_procedimento+','+data_agendamento+','+hora_agendamento+','+data_realização+','+status+','+observacoes+')')
+        db.commit()
+        cursor.close()
+        affected_rows = cursor.rowcount
+        if affected_rows is not None and affected_rows > 0:
+            cursor.close()
+            return True
+        else:
+            return False

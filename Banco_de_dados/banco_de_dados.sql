@@ -42,20 +42,11 @@ CREATE TABLE Agendamentos (
     id_procedimento INT,
     data_agendamento DATE,
     hora_agendamento TIME,
+    data_realizacao DATE,
     status ENUM('pendente', 'confirmado', 'realizado', 'cancelado'),
     observacoes TEXT,
     FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente),
     FOREIGN KEY (id_procedimento) REFERENCES Procedimentos(id_procedimento)
-);
-
--- Tabela Histórico de Agendamentos
-CREATE TABLE Historico_Agendamentos (
-    id_historico INT AUTO_INCREMENT PRIMARY KEY,
-    id_cliente INT,
-    id_agendamento INT,
-    data_realizacao DATE,
-    FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente),
-    FOREIGN KEY (id_agendamento) REFERENCES Agendamentos(id_agendamento)
 );
 
 -- Tabela posts_do_instagram

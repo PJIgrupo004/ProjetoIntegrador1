@@ -72,6 +72,8 @@ def dashboard():
 @app.route("/cadastro_cliente")
 @login_required
 def cadastro_cliente():
+    #Pra cadastrar um cliente, chame a função db.cliente.insert_cliente(nome,telefone,data_nascimento,endereco,facebook,instagram)
+    #Precisa informar todos os campos (mesma que seja None/Null), então é bom inicializar as variáveis
     return render_template("/adm/jinja_cadastro_cliente.html")
 
 #Tela Cadastro de Serviços
@@ -90,7 +92,7 @@ def cadastro_funcionarios():
 @app.route("/clientes_cadastrados")
 @login_required
 def clientes_cadastrados():
-    return render_template("/adm/jinja_clientes_cadastrados.html")
+    return render_template("/adm/jinja_clientes_cadastrados.html",clientes=db.cliente.get_clientes())
 
 #Tela Serviços Cadastrados
 @app.route("/serviços_cadastrados")
